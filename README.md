@@ -25,3 +25,11 @@ This project analyzes the relationship between CPI inflation and the policy repo
 
 ## Tools
 Python, Pandas, Matplotlib, Statsmodels
+
+## Results
+
+The analysis includes regression outputs and visualizations showing the relationship between CPI inflation and the policy repo rate in India.
+
+### Inflation vs Repo Rate Trend
+
+![Inflation vs Repo Rate](results/inflation_repo_plot.png)
