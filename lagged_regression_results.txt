@@ -1,0 +1,48 @@
+LAGGED REGRESSION ANALYSIS: Repo Rate vs Current and Past Inflation
+
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:              Repo_Rate   R-squared:                       0.087
+Model:                            OLS   Adj. R-squared:                  0.037
+Method:                 Least Squares   F-statistic:                     1.756
+Date:                Tue, 10 Mar 2026   Prob (F-statistic):              0.115
+Time:                        19:04:23   Log-Likelihood:                -732.76
+No. Observations:                 118   AIC:                             1480.
+Df Residuals:                     111   BIC:                             1499.
+Df Model:                           6                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const        636.5005     14.591     43.623      0.000     607.587     665.413
+CPI            0.2337      1.244      0.188      0.851      -2.231       2.699
+CPI_lag1      -0.0643      1.238     -0.052      0.959      -2.517       2.388
+CPI_lag2      -0.5186      1.235     -0.420      0.675      -2.965       1.928
+CPI_lag3      -1.5758      1.245     -1.266      0.208      -4.043       0.891
+CPI_lag6      -2.6051      1.256     -2.075      0.040      -5.093      -0.117
+CPI_lag12     -2.5833      1.262     -2.047      0.043      -5.083      -0.083
+==============================================================================
+Omnibus:                        2.249   Durbin-Watson:                   0.236
+Prob(Omnibus):                  0.325   Jarque-Bera (JB):                1.944
+Skew:                          -0.195   Prob(JB):                        0.378
+Kurtosis:                       2.507   Cond. No.                         15.5
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+KEY FINDINGS:
+R-squared: 0.086705
+Adjusted R-squared: 0.037337
+F-statistic: 1.756318 (p=0.114659)
+
+const: 636.500470 (p=0.000000)
+CPI: 0.233676 (p=0.851344)
+CPI_lag1: -0.064260 (p=0.958686)
+CPI_lag2: -0.518642 (p=0.675246)
+CPI_lag3: -1.575833 (p=0.208296)
+CPI_lag6: -2.605077 (p=0.040312)
+CPI_lag12: -2.583291 (p=0.042974)
+
+CONCLUSION:
+No significant response to 3-month lagged inflation found.

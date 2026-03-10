@@ -1,0 +1,139 @@
+================================================================================
+OLS REGRESSION ANALYSIS: CPI (Inflation) vs Repo Rate
+================================================================================
+Dataset: inflation_repo_dataset.csv
+Analysis Date: March 10, 2026
+Sample Size: 130 observations
+
+================================================================================
+REGRESSION MODEL
+================================================================================
+Equation: Repo_Rate = β₀ + β₁ × CPI + ε
+
+Estimated Equation: Repo_Rate = 0.0660 + 0.000069 × CPI
+
+================================================================================
+KEY RESULTS
+================================================================================
+
+1. COEFFICIENT (CPI Effect):
+   - Estimate: 0.000069 (6.934e-05)
+   - Std. Error: 0.000210
+   - t-statistic: 0.341
+   - P-value: 0.7340 ❌ NOT SIGNIFICANT
+   
+   Interpretation: For every 1% increase in inflation (CPI), repo rate 
+   increases by only 0.000069 percentage points (essentially zero).
+
+2. INTERCEPT (Constant):
+   - Estimate: 0.0660 (6.6%)
+   - P-value: 0.0000 ✅ HIGHLY SIGNIFICANT
+   
+   Interpretation: When inflation is zero, baseline repo rate is ~6.6%.
+
+3. MODEL FIT (R²):
+   - R-squared: 0.0009 (0.09%)
+   - Adjusted R²: -0.0074
+   - F-statistic: 0.1160
+   - Prob (F-stat): 0.7340
+   
+   Interpretation: Inflation explains only 0.09% of repo rate variation. 
+   The model has almost NO predictive power.
+
+4. RESIDUAL DIAGNOSTICS:
+   - Durbin-Watson: 0.113 (indicates strong autocorrelation)
+   - Omnibus p-value: 0.0000 (residuals not normally distributed)
+   - Jarque-Bera: 263.56 (very high kurtosis = heavy tails)
+   - Condition Number: 10.1 (no multicollinearity issues)
+   
+   Interpretation: Residuals are highly autocorrelated and non-normal,
+   suggesting the model is misspecified.
+
+================================================================================
+ECONOMIC INTERPRETATION
+================================================================================
+
+✅ POSITIVE RELATIONSHIP CONFIRMED:
+   - Correlation: +0.030 (positive, theoretically correct)
+   - Coefficient sign: positive (repo increases with inflation)
+   - Economic theory: RBI raises repo rates during inflation (✓ aligned)
+
+❌ RELATIONSHIP IS EXTREMELY WEAK:
+   - R² = 0.0009 means current inflation explains almost nothing
+   - p-value = 0.734 means this relationship is NOT statistically significant
+   - The coefficient is negligibly small
+
+WHAT THIS MEANS:
+   1. RBI's repo rate is NOT driven by current month-to-month inflation
+   2. RBI likely responds to:
+      • LAGGED inflation (inflation from 1-6 months ago)
+      • EXPECTED future inflation
+      • Real economic growth and credit conditions
+      • Global interest rates and rupee stability
+      • Financial stability and credit availability
+
+POLICY IMPLICATION:
+   The RBI uses inflation-fighting as ONE tool among many. They don't 
+   mechanically raise rates just because inflation rose by 1%. Instead, 
+   they look at inflation trends, expectations, and economic conditions.
+
+================================================================================
+RECOMMENDATIONS FOR DEEPER ANALYSIS
+================================================================================
+
+1. Test LAGGED RELATIONSHIPS:
+   - Does current repo respond to inflation from 1, 2, 3, 6 months ago?
+   - Build ADL (Autoregressive Distributed Lag) model
+
+2. Test NON-LINEAR EFFECTS:
+   - Does RBI respond more aggressively to HIGH inflation?
+   - Test interaction terms or regime-switching models
+
+3. INCLUDE ADDITIONAL VARIABLES:
+   - Real GDP growth
+   - Inflation expectations
+   - Global interest rates (Fed rate)
+   - Rupee exchange rate
+   - Credit growth
+
+4. ACCOUNT FOR AUTOCORRELATION:
+   - Current repo is highly correlated with previous repo
+   - Use first-differences or ECM (Error Correction Model)
+   - Durbin-Watson = 0.113 suggests strong persistence
+
+5. TEST POLICY REGIMES:
+   - Different relationships in tightening vs easing cycles?
+   - Analyze 2010-2015 vs 2015-2026 separately
+
+================================================================================
+REGRESSION TABLE (Full Output)
+================================================================================
+
+                            OLS Regression Results
+==============================================================================
+Dep. Variable:              Repo_Rate   R-squared:                       0.001
+Model:                            OLS   Adj. R-squared:                 -0.007
+Method:                 Least Squares   F-statistic:                    0.1160
+Date:                Tue, 10 Mar 2026   Prob (F-statistic):              0.734
+Time:                        02:37:45   Log-Likelihood:                 318.82
+No. Observations:                 130   AIC:                            -633.6
+Df Residuals:                     128   BIC:                            -627.9
+Df Model:                           1
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          0.0660      0.002     34.004      0.000       0.062       0.070
+CPI         6.934e-05      0.000      0.341      0.734      -0.000       0.000
+==============================================================================
+Omnibus:                       67.411   Durbin-Watson:                   0.113
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              263.562
+Skew:                           1.896   Prob(JB):                     5.86e-58
+Kurtosis:                       8.855   Cond. No.                         10.1
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors are 
+correctly specified.
+
+================================================================================
