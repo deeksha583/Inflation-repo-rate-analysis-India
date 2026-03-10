@@ -32,4 +32,3 @@ The analysis includes regression outputs and visualizations showing the relation
 
 ### Inflation vs Repo Rate Trend
 ![Inflation vs Repo Rate](inflation_repo_plot.png)
-![Inflation vs Repo Rate](results/inflation_repo_plot.png)
