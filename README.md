@@ -32,3 +32,4 @@ The analysis includes regression outputs and visualizations showing the relation
 
 ### Inflation vs Repo Rate Trend
 ![Inflation vs Repo Rate](inflation_repo_plot.png)
+The visualization illustrates the relationship between CPI inflation and the policy repo rate in India over time. The trend highlights how monetary policy adjustments respond to inflation dynamics.
